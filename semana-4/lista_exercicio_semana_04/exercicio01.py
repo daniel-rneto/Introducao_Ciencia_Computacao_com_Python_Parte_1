@@ -6,6 +6,8 @@
 # Digite o valor de n: 5
 # 120
 
+# Dica: lembre-se que o fatorial de 0 vale 1!
+
 aux = 1
 numero = int(input("Digite o valor de n: "))
 
