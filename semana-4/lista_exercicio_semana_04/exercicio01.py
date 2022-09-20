@@ -1,3 +1,11 @@
+
+#Exercício 1
+#Escreva um programa que receba um número natural  n n na entrada e imprima  n! n! (fatorial) na saída.
+
+#Exemplo:
+#Digite o valor de n: 5
+#120
+
 aux = 1
 numero = int(input("Digite o valor de n: "))
 
