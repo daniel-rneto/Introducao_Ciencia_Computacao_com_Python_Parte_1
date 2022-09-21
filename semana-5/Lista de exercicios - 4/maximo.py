@@ -9,6 +9,6 @@
 
 def maximo (a, b):
     if (a > b):
-        print (a)
+        return a
     else:
-        print (b)
+        return b
