@@ -1,8 +1,9 @@
-x = 10
-y = 20
-z = 30
+def ePrimo(x):
+    if (x > 2):
+        if (x % 2 == 0):
+            print ("Nâo é Primo")
+        else:
+            print ("Primo")
 
-print(not y < 10 or not z == 10)
-print(x <= 30 and y >= 5)
-print(x >= 10 or y != z - x)
-print(not y > 10 or not z > 10)
+y = int(input("digite um número: "))
+ePrimo (y)
