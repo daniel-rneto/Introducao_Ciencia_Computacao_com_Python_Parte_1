@@ -10,21 +10,26 @@
 # 7
 
 def ePrimo(x):
+    if ((x == 2) or (x == 3) or (x == 5) or (x == 7)):
+        #print (x, "é primo")
+        return True
+    else:
+        if ((x % 2 == 0) or (x % 3 == 0) or (x % 5 == 0) or (x % 7 == 0)):
+            #print ("False")
+            return False
+        else:
+            #print ("True")
+            return True
+
+
+def maior_primo(n):
     maior_primo = 0
-    contador = 0
-    while (contador < x):
+    contador = 2
+    while (contador <= n):
         
-        if (contador % 2 != 0):
+        if (ePrimo(contador)):
+            #print (contador)
             maior_primo = contador
-            #print (contador, " Nâo é Primo")
         contador = contador + 1
 
     return maior_primo
-
-def maior_primo(n):
-    #<Código do maior_primo>
-    return n
-
-
-y = int(input("digite um número: "))
-print ("maior primo:", ePrimo (y))
