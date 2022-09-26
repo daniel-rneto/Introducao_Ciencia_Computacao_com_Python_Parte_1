@@ -13,8 +13,21 @@ def partida ():
     resposta  = int(input())
 
     if (resposta == 1):
+        # Partida isolada
         print ("Voce escolheu partida isolada")
+        qtde_pecas = int(input("Quantas peças? "))
+        limite_pecas_jogada= int(input("Limite de peças por jogada? "))
+        if (((limite_pecas_jogada + 1) % qtde_pecas) == 0):
+            print ("Você começa!")
+            usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+
+        else:
+            print ("Computador começa!")
+            computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+
+
     elif (resposta == 2):
+        # Campeonato
         print ("Voce escolheu um campeonato!")
         print ()
         print ("**** Rodada 1 ****")
@@ -24,7 +37,7 @@ def partida ():
         if (((limite_pecas_jogada + 1) % qtde_pecas) == 0):
             print ("Você começa!")
             usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
-            
+
         else:
             print ("Computador começa!")
             computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
