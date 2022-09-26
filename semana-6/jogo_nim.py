@@ -29,18 +29,24 @@ def partida ():
     elif (resposta == 2):
         # Campeonato
         print ("Voce escolheu um campeonato!")
-        print ()
-        print ("**** Rodada 1 ****")
-        print ()
-        qtde_pecas = int(input("Quantas peças? "))
-        limite_pecas_jogada= int(input("Limite de peças por jogada? "))
-        if (((limite_pecas_jogada + 1) % qtde_pecas) == 0):
-            print ("Você começa!")
-            usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+        
+        qtde_jogadas = 3
+        jogada = 1
+        while (jogada <=3):
+            print ()
+            print ("**** Rodada", jogada," ****")
+            print ()
+            qtde_pecas = int(input("Quantas peças? "))
+            limite_pecas_jogada= int(input("Limite de peças por jogada? "))
+            if (((limite_pecas_jogada + 1) % qtde_pecas) == 0):
+                print ("Você começa!")
+                usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
 
-        else:
-            print ("Computador começa!")
-            computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+            else:
+                print ("Computador começa!")
+                computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+            
+            jogada = jogada + 1
 
     else:
         print ("Escolha errada. Tente novamente.")
