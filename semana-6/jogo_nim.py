@@ -1,13 +1,16 @@
 ﻿def computador_escolhe_jogada (n, m):
     jogada = 1
-    
+
     while (jogada <= m):
         if ((n-jogada) % (m + 1) == 0):
-            #print ("Entrou")
             return jogada
-        else:
-            return m
-        
+        jogada = jogada + 1
+    
+    if (jogada <= m):
+        return jogada
+    else:
+        return m
+
 def usuario_escolhe_jogada (n, m):
 
     qtde_pecas_removidas = int(input("Quantas peças você vai tirar? "))
@@ -43,7 +46,8 @@ def partida ():
                 if (qtde_pecas == 1):
                     print ("Agora resta apenas uma peça no tabuleiro.\n")
                 elif (qtde_pecas == 0):
-                    print ("Fim do jogo! O computador ganhou!")
+                    print ("Fim do jogo! Você ganhou!")
+                    return "voce"
                 else:
                     print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
             else:
@@ -60,6 +64,7 @@ def partida ():
                     print ("Agora resta apenas uma peça no tabuleiro.\n")
                 elif (qtde_pecas == 0):
                     print ("Fim do jogo! O computador ganhou!")
+                    return "computador"
                 else:
                     print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
                 
@@ -84,7 +89,8 @@ def partida ():
                 if (qtde_pecas == 1):
                     print ("Agora resta apenas uma peça no tabuleiro.\n")
                 elif (qtde_pecas == 0):
-                    print ("Fim do jogo! O computador ganhou!")
+                    print ("Fim do jogo! Você ganhou!")
+                    return "voce"
                 else:
                     print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
             else:
@@ -101,6 +107,7 @@ def partida ():
                     print ("Agora resta apenas uma peça no tabuleiro.\n")
                 elif (qtde_pecas == 0):
                     print ("Fim do jogo! O computador ganhou!")
+                    return "computador"
                 else:
                     print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
                 
@@ -119,7 +126,25 @@ def main ():
         partida()
     elif (resposta == 2):
         # Campeonato
-        print ("Voce escolheu um campeonato!")
+        print ("Voce escolheu um campeonato!\n")
+        rodadas = 1
+        vitorias_computador = 0
+        vitorias_usuario = 0
+        while (rodadas <= 3):
+            print ("**** Rodada", rodadas, "****\n")
+            rodadas = rodadas + 1
+            if (partida() == "computador"):
+                #print ("computador ganhou rodada", rodadas)
+                vitorias_computador = vitorias_computador + 1
+
+            else:
+                #print ("voce ganhou rodada", rodadas)
+                vitorias_usuario = vitorias_usuario + 1
+        
+        print ("**** Final do campeonato! ****\n")
+
+        print ("Placar: Você", vitorias_usuario, " X ", vitorias_computador, "Computador")
+
     else:
         print ("Escolha errada. Tente novamente.")
 
