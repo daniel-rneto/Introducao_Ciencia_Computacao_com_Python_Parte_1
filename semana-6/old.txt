@@ -1,0 +1,41 @@
+﻿qtde_pecas_jogo = usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+            print ("quantidade de pecas em jogo", qtde_pecas_jogo)
+            qtde_pecas_removidas = qtde_pecas - qtde_pecas_jogo
+            print ("quantidade de pecas removidas: ",qtde_pecas_removidas)
+
+            if (qtde_pecas_jogo > 0):
+                if ( qtde_pecas_removidas == 1):
+                    print ("Você tirou uma peça.")
+                else:
+                    print ("Voce tirou", qtde_pecas_removidas, "peças.")
+                
+                if (usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada) == 1):
+                    print ("Agora resta apenas uma peça no tabuleiro.")
+                else:
+                    print ("Agora restam ", qtde_pecas_jogo, " peças no tabuleiro.")
+
+                computador_escolhe_jogada (qtde_pecas_jogo, limite_pecas_jogada)
+            else:
+                print ("Você tirou uma peça.")
+                print ("Fim do jogo! O usuário ganhou!")
+
+
+####################################################################
+
+
+if (qtde_pecas > 0):
+                if ( qtde_pecas_removidas == 1):
+                    print ("Você tirou uma peça.")
+                else:
+                    print ("Voce tirou", qtde_pecas_removidas, "peças.")
+                
+                if (qtde_pecas == 1):
+                    print ("Agora resta apenas uma peça no tabuleiro.")
+                else:
+                    print ("Agora restam ", qtde_pecas, " peças no tabuleiro.")
+
+                #computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+                usuario_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
+            else:
+                print ("Você tirou uma peça.")
+                print ("Fim do jogo! O usuário ganhou!")
