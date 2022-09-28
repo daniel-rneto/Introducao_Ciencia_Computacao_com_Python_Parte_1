@@ -13,8 +13,8 @@ def usuario_escolhe_jogada (n, m):
     qtde_pecas_removidas = int(input("Quantas peças você vai tirar? "))
     while ((qtde_pecas_removidas > m) or (qtde_pecas_removidas > n) or (qtde_pecas_removidas <= 0)):
         print ()
-        print ("Oops! Jogada inválida! Tente de novo.")
-        print ()
+        print ("Oops! Jogada inválida! Tente de novo.\n")
+        # print ()
         qtde_pecas_removidas = int(input("Quantas peças você vai tirar? "))
         
     return qtde_pecas_removidas
@@ -36,28 +36,32 @@ def partida ():
                 qtde_pecas = qtde_pecas - pecas_removidas
 
                 if ( pecas_removidas == 1):
-                    print ("Você tirou uma peça.")
+                    print ("Você tirou uma peça.\n")
                 else:
-                    print ("Voce tirou", pecas_removidas, "peças.")
+                    print ("Voce tirou", pecas_removidas, "peças.\n")
 
                 if (qtde_pecas == 1):
-                    print ("Agora resta apenas uma peça no tabuleiro.")
+                    print ("Agora resta apenas uma peça no tabuleiro.\n")
+                elif (qtde_pecas == 0):
+                    print ("Fim do jogo! O computador ganhou!")
                 else:
-                    print ("Agora restam ", qtde_pecas, " peças no tabuleiro.")
+                    print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
             else:
                 jogada = True
                 pecas_removidas = computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
                 qtde_pecas = qtde_pecas - pecas_removidas
 
                 if ( pecas_removidas == 1):
-                    print ("O computador tirou uma peça.")
+                    print ("O computador tirou uma peça.\n")
                 else:
-                    print ("O computador tirou", pecas_removidas, "peças.")
+                    print ("O computador tirou", pecas_removidas, "peças.\n")
                 
                 if (qtde_pecas == 1):
-                    print ("Agora resta apenas uma peça no tabuleiro.")
+                    print ("Agora resta apenas uma peça no tabuleiro.\n")
+                elif (qtde_pecas == 0):
+                    print ("Fim do jogo! O computador ganhou!")
                 else:
-                    print ("Agora restam ", qtde_pecas, " peças no tabuleiro.")
+                    print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
                 
 
     else:
@@ -73,28 +77,32 @@ def partida ():
                 qtde_pecas = qtde_pecas - pecas_removidas
 
                 if ( pecas_removidas == 1):
-                    print ("O computador tirou uma peça.\n")
+                    print ("Você tirou uma peça.\n")
                 else:
-                    print ("O computador tirou", pecas_removidas, "peças.")
+                    print ("Você tirou", pecas_removidas, "peças.\n")
 
                 if (qtde_pecas == 1):
-                    print ("Agora resta apenas uma peça no tabuleiro.")
+                    print ("Agora resta apenas uma peça no tabuleiro.\n")
+                elif (qtde_pecas == 0):
+                    print ("Fim do jogo! O computador ganhou!")
                 else:
-                    print ("Agora restam ", qtde_pecas, " peças no tabuleiro.")
+                    print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
             else:
                 jogada = True
                 pecas_removidas = computador_escolhe_jogada (qtde_pecas, limite_pecas_jogada)
                 qtde_pecas = qtde_pecas - pecas_removidas
 
                 if ( pecas_removidas == 1):
-                    print ("O computador tirou uma peça.")
+                    print ("O computador tirou uma peça.\n")
                 else:
-                    print ("O computador tirou", pecas_removidas, "peças.")
+                    print ("O computador tirou", pecas_removidas, "peças.\n")
                 
                 if (qtde_pecas == 1):
-                    print ("Agora resta apenas uma peça no tabuleiro.")
+                    print ("Agora resta apenas uma peça no tabuleiro.\n")
+                elif (qtde_pecas == 0):
+                    print ("Fim do jogo! O computador ganhou!")
                 else:
-                    print ("Agora restam ", qtde_pecas, " peças no tabuleiro.")
+                    print ("Agora restam", qtde_pecas, "peças no tabuleiro.\n")
                 
 
 def main ():
