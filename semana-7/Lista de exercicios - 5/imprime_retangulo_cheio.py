@@ -12,6 +12,10 @@
 # ##########
 # ##########
 
+# Dica: lembre-se que a função print pode receber um parametro 'end', que altera 
+# o último caractere da cadeia, tornando possível a remoção da quebra de linha 
+# (reveja as vídeo-aulas)
+
 largura = int(input("digite a largura: "))
 altura = int(input("digite a altura: "))
 
