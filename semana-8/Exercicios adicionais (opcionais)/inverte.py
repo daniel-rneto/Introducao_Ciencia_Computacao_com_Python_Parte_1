@@ -25,7 +25,13 @@ def main ():
         if (numero != 0):
             lista_numero.append(numero)
 
-    print (inverte_lista(lista_numero))
+    #print (inverte_lista(lista_numero))
+    lista_invertida = inverte_lista(lista_numero)
+    
+    while (numero < len(lista_invertida)):
+        print (lista_invertida[numero])
+        numero = numero + 1
+
 
 def inverte_lista (lista):
     contador = (len(lista) - 1)
