@@ -19,3 +19,25 @@
 # >>>fizzbuzz(4)
 # 4
 
+def fizzbuzz (numero):
+    resposta = 0
+
+    if ((numero % 3 == 0) and (numero % 5 == 0)):
+        resposta = "FizzBuzz"
+    elif ((numero % 3 == 0) and not(numero % 5 == 0)):
+        resposta = "Fizz"
+    elif (not(numero % 3 == 0) and (numero % 5 == 0)):
+        resposta = "Buzz"
+    elif (not (numero % 3 == 0) and not(numero % 5 == 0)):
+        resposta = numero
+
+    
+    return resposta
+
+def main():
+    print (fizzbuzz (3))
+    print (fizzbuzz (5))
+    print (fizzbuzz (15))
+    print (fizzbuzz(4))
+
+main()
