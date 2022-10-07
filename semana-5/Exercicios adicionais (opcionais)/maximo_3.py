@@ -9,3 +9,14 @@
 # 30
 # >>>maximo(0, -1, 1)
 # 1
+
+def maximo (a, b, c):
+    if (a > b and b > c):
+        return a
+    elif (b > a and b > c):
+        return b
+    else:
+        return c
+
+print (maximo(30, 14, 10))
+print (maximo(0, -1, 1))
