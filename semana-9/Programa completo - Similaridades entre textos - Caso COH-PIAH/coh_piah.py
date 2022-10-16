@@ -80,3 +80,97 @@ def calcula_assinatura(texto):
 def avalia_textos(textos, ass_cp):
     '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
     pass
+
+################################
+def calc_tam_medio_palavra (texto):
+    # Função recebe um texto e retorna o calculo do tamanho médio de palavras
+    return (calc_qtde_letras_texto (texto) / calc_qtde_palavras_texto (texto))
+
+def calc_qtde_letras_texto (texto):
+    # Função recebe um texto e retorna quantos caracteres tem o texto. 
+    # Não conta espaços em branco e pontuação como por exemplo . , : ; ! ?
+    qtde_letras = 0
+    for sentenca_separada in separa_sentencas(texto):
+        for frase_separada in separa_frases(sentenca_separada):
+            for palavra_separada in separa_palavras(frase_separada):
+                qtde_letras = qtde_letras + len(palavra_separada)
+    
+    return qtde_letras
+
+def calc_qtde_palavras_texto (texto):
+    # Função recebe um texto e retorna quantas palavras tem o texto. 
+    qtde_palavras = 0
+    for sentenca_separada in separa_sentencas(texto):
+        for frase_separada in separa_frases(sentenca_separada):
+            qtde_palavras = qtde_palavras + len(separa_palavras(frase_separada))
+    
+    return qtde_palavras
+
+def calc_qtde_palavras_diferentes_texto (texto):
+    # Função recebe um texto e retorna quantas palavras diferentes o texto tem. 
+    lista_palavras_texto = []
+    for sentenca_separada in separa_sentencas(texto):
+        for frase_separada in separa_frases(sentenca_separada):
+            for palavra_separada in separa_palavras(frase_separada):
+                lista_palavras_texto.append(palavra_separada)
+
+    return n_palavras_diferentes(lista_palavras_texto)
+
+def calc_relacao_type_token (texto):
+    # A função recebe o texto e retorna o valor da relação Type Token
+    return (calc_qtde_palavras_diferentes_texto (texto) / calc_qtde_palavras_texto (texto))
+
+#####################
+#### T E S T E S ####
+#####################
+
+def testa_calc_qtde_letras_texto (texto):
+    # 631 caracteres sem espaço, 790 caracteres com espaço
+    # 97 palavras diferentes
+    resultado = calc_qtde_letras_texto (texto)
+    if ( resultado == 631):
+        print ("Funcionou")
+        print ("Quantidade de letras:", resultado)
+    else:
+        print ("ERRO")
+        print ("Quantidade de letras diferente.")
+
+def testa_qtde_palavras_texto (texto):
+    # 140 palavras
+    resultado = calc_qtde_palavras_texto (texto)
+    if ( resultado == 140):
+        print ("Funcionou")
+        print ("Quantidade de palavras:", resultado)
+    else:
+        print ("ERRO")
+        print ("Quantidade de palavras diferente.")
+        print (resultado)
+
+def testa_calc_tam_medio_palavra (texto):
+    resultado = calc_tam_medio_palavra(texto)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 4.507142857142857):
+        print ("Funcionou")
+        print ("Tamanho médio de palavra:", resultado)
+
+def testa_calc_qtde_palavras_diferentes_texto (texto):
+    # 97 palavras diferentes
+    resultado = calc_qtde_palavras_diferentes_texto (texto)
+    if (resultado == 97):
+        print ("Funcionou")
+        print ("A quantidade de palavras diferentes:", resultado)
+    else:
+        print ("ERRO")
+        print (resultado)
+
+def testa_calc_relacao_type_token (texto):
+    resultado = calc_relacao_type_token (texto)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 0.6928571428571428):
+        print ("Funcionou")
+        print ("Tamanho médio de palavra:", resultado)
+
+texto = "Então resolveu ir brincar com a Máquina pra ser também imperador dos filhos da mandioca. Mas as três cunhas deram muitas risadas e falaram que isso de deuses era gorda mentira antiga, que não tinha deus não e que com a máquina ninguém não brinca porque ela mata. A máquina não era deus não, nem possuía os distintivos femininos de que o herói gostava tanto. Era feita pelos homens. Se mexia com eletricidade com fogo com água com vento com fumo, os homens aproveitando as forças da natureza. Porém jacaré acreditou? nem o herói! Se levantou na cama e com um gesto, esse sim! bem guaçu de desdém, tó! batendo o antebraço esquerdo dentro do outro dobrado, mexeu com energia a munheca direita pras três cunhas e partiu. Nesse instante, falam, ele inventou o gesto famanado de ofensa: a pacova."
+# O texto acima tem:
+# 631 caracteres sem espaço, 790 caracteres com espaço
+# 97 palavras diferentes
