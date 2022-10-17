@@ -135,8 +135,23 @@ def calc_razao_hapax_legomana (texto):
     return (calc_qtde_palavras_unicas_texto (texto) / calc_qtde_palavras_texto (texto))
 
 def calc_numero_sentencas (texto):
+    # A função recebe o texto e retorna quantas sentenças tem no texto
+    return len(separa_sentencas(texto))
+
+def calc_total_caracteres_todas_sentencas (texto):
+    # A função recebe um texto na entrada e devove o total de caracteres em todas as sentenças.
+    total_cacteres = 0
     
-    pass
+    for sentencas_separadas in separa_sentencas(texto):
+        total_cacteres = total_cacteres + len(sentencas_separadas)
+
+    return total_cacteres
+
+def tamanho_medio_sentenca (texto):
+    # A função recebe um texto como parâmetro e devolve o cálculo do tamanho médio de sentença
+    return (calc_total_caracteres_todas_sentencas (texto) / calc_numero_sentencas (texto))
+
+
 #####################
 #### T E S T E S ####
 #####################
@@ -193,6 +208,13 @@ def testa_calc_razao_hapax_legomana (texto):
     if (resultado == 0.55):
         print ("Funcionou")
         print ("Tamanho médio de palavra:", resultado)
+
+def testa_tamanho_medio_sentenca (texto):
+    resultado = tamanho_medio_sentenca (texto)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 70.81818181818181):
+        print ("Funcionou")
+        print ("Tamanho médio da sentença:", resultado)
 
 texto = "Então resolveu ir brincar com a Máquina pra ser também imperador dos filhos da mandioca. Mas as três cunhas deram muitas risadas e falaram que isso de deuses era gorda mentira antiga, que não tinha deus não e que com a máquina ninguém não brinca porque ela mata. A máquina não era deus não, nem possuía os distintivos femininos de que o herói gostava tanto. Era feita pelos homens. Se mexia com eletricidade com fogo com água com vento com fumo, os homens aproveitando as forças da natureza. Porém jacaré acreditou? nem o herói! Se levantou na cama e com um gesto, esse sim! bem guaçu de desdém, tó! batendo o antebraço esquerdo dentro do outro dobrado, mexeu com energia a munheca direita pras três cunhas e partiu. Nesse instante, falam, ele inventou o gesto famanado de ofensa: a pacova."
 # O texto acima tem:
