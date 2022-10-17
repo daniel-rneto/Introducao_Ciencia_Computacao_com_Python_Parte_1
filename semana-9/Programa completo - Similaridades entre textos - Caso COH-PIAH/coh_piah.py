@@ -120,6 +120,20 @@ def calc_relacao_type_token (texto):
     # A função recebe o texto e retorna o valor da relação Type Token
     return (calc_qtde_palavras_diferentes_texto (texto) / calc_qtde_palavras_texto (texto))
 
+def calc_qtde_palavras_unicas_texto (texto):
+    # Função recebe um texto e retorna quantas palavras únicas tem o texto. 
+    lista_palavras_unicas_texto = []
+    for sentenca_separada in separa_sentencas(texto):
+        for frase_separada in separa_frases(sentenca_separada):
+            for palavra_separada in separa_palavras(frase_separada):
+                lista_palavras_unicas_texto.append(palavra_separada)
+
+    return n_palavras_unicas(lista_palavras_unicas_texto)
+
+def calc_razao_hapax_legomana (texto):
+    # A função recebe um texto e retorna o valor da Razão Hapax Legomana
+    return (calc_qtde_palavras_unicas_texto (texto) / calc_qtde_palavras_texto (texto))
+
 #####################
 #### T E S T E S ####
 #####################
@@ -167,6 +181,13 @@ def testa_calc_relacao_type_token (texto):
     resultado = calc_relacao_type_token (texto)
     # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
     if (resultado == 0.6928571428571428):
+        print ("Funcionou")
+        print ("Tamanho médio de palavra:", resultado)
+
+def testa_calc_razao_hapax_legomana (texto):
+    resultado = calc_razao_hapax_legomana (texto)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 0.55):
         print ("Funcionou")
         print ("Tamanho médio de palavra:", resultado)
 
