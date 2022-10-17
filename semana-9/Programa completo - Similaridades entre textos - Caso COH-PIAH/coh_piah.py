@@ -134,6 +134,9 @@ def calc_razao_hapax_legomana (texto):
     # A função recebe um texto e retorna o valor da Razão Hapax Legomana
     return (calc_qtde_palavras_unicas_texto (texto) / calc_qtde_palavras_texto (texto))
 
+def calc_numero_sentencas (texto):
+    
+    pass
 #####################
 #### T E S T E S ####
 #####################
