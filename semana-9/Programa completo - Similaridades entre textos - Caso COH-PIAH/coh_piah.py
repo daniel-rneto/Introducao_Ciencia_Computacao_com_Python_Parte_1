@@ -76,17 +76,20 @@ def compara_assinatura(as_a, as_b):
 
 def calcula_assinatura(texto):
     '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
-    pass
-
+    wal_a = calc_tam_medio_palavra (texto)
+    ttr_a = calc_relacao_type_token (texto)
+    hlr_a = calc_razao_hapax_legomana (texto)
+    sal_a = tamanho_medio_sentenca (texto)
+    sac_b = calc_complexidade_sentenca (texto)
+    pal_a = calc_tamanho_medio_frase (texto)
+    return [wal_a, ttr_a, hlr_a, sal_a, sac_b, pal_a]
+    
 def avalia_textos(textos, ass_cp):
     '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver 
     o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
     pass
 
-################################
-def calc_tam_medio_palavra (texto):
-    # Função recebe um texto e retorna o calculo do tamanho médio de palavras
-    return (calc_qtde_letras_texto (texto) / calc_qtde_palavras_texto (texto))
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 def calc_qtde_letras_texto (texto):
     # Função recebe um texto e retorna quantos caracteres tem o texto. 
@@ -108,6 +111,12 @@ def calc_qtde_palavras_texto (texto):
     
     return qtde_palavras
 
+def calc_tam_medio_palavra (texto):
+    # Função recebe um texto e retorna o calculo do tamanho médio de palavras
+    return (calc_qtde_letras_texto (texto) / calc_qtde_palavras_texto (texto))
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
 def calc_qtde_palavras_diferentes_texto (texto):
     # Função recebe um texto e retorna quantas palavras diferentes o texto tem. 
     lista_palavras_texto = []
@@ -122,6 +131,8 @@ def calc_relacao_type_token (texto):
     # A função recebe o texto e retorna o valor da relação Type Token
     return (calc_qtde_palavras_diferentes_texto (texto) / calc_qtde_palavras_texto (texto))
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
 def calc_qtde_palavras_unicas_texto (texto):
     # Função recebe um texto e retorna quantas palavras únicas tem o texto. 
     lista_palavras_unicas_texto = []
@@ -135,6 +146,8 @@ def calc_qtde_palavras_unicas_texto (texto):
 def calc_razao_hapax_legomana (texto):
     # A função recebe um texto e retorna o valor da Razão Hapax Legomana
     return (calc_qtde_palavras_unicas_texto (texto) / calc_qtde_palavras_texto (texto))
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 def calc_numero_sentencas (texto):
     # A função recebe o texto e retorna quantas sentenças tem no texto
@@ -153,6 +166,8 @@ def tamanho_medio_sentenca (texto):
     # A função recebe um texto como parâmetro e devolve o cálculo do tamanho médio de sentença
     return (calc_total_caracteres_todas_sentencas (texto) / calc_numero_sentencas (texto))
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
 def calc_total_frases (texto):
     # A função recebe um texto na entrada e devolve o total de frases que o texto tem
     total_frases = 0
@@ -165,6 +180,7 @@ def calc_complexidade_sentenca (texto):
     # A função receve um texto na entrada e retorna o calculo da Complexidade de sentença
     return (calc_total_frases (texto) / calc_numero_sentencas (texto))
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 def calc_total_caracteres_frases (texto):
     # A função recebe um texto na entrada e devolve o número de caracteres em cada frase
@@ -179,7 +195,7 @@ def calc_tamanho_medio_frase (texto):
     # A função recebe um texto na entrada e retorna o valor do tamanho médio de frase
     return (calc_total_caracteres_frases (texto) / calc_total_frases (texto))
 
-    pass
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 #####################
 #### T E S T E S ####
