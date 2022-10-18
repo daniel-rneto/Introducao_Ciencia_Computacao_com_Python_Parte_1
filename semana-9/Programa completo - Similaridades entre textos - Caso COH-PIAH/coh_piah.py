@@ -70,7 +70,8 @@ def n_palavras_diferentes(lista_palavras):
     return len(freq)
 
 def compara_assinatura(as_a, as_b):
-    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
+    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade 
+    nas assinaturas.'''
     pass
 
 def calcula_assinatura(texto):
@@ -78,7 +79,8 @@ def calcula_assinatura(texto):
     pass
 
 def avalia_textos(textos, ass_cp):
-    '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
+    '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver 
+    o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
     pass
 
 ################################
@@ -164,6 +166,20 @@ def calc_complexidade_sentenca (texto):
     return (calc_total_frases (texto) / calc_numero_sentencas (texto))
 
 
+def calc_total_caracteres_frases (texto):
+    # A função recebe um texto na entrada e devolve o número de caracteres em cada frase
+    total_caracteres_frases = 0
+    for sentenca_separada in separa_sentencas(texto):
+        for frase_separada in separa_frases(sentenca_separada):
+            total_caracteres_frases = total_caracteres_frases + len(frase_separada)
+    
+    return total_caracteres_frases
+    
+def calc_tamanho_medio_frase (texto):
+    # A função recebe um texto na entrada e retorna o valor do tamanho médio de frase
+    return (calc_total_caracteres_frases (texto) / calc_total_frases (texto))
+
+    pass
 
 #####################
 #### T E S T E S ####
@@ -231,11 +247,19 @@ def testa_tamanho_medio_sentenca (texto):
 
 def testa_calc_complexidade_sentenca (texto):
     resultado = calc_complexidade_sentenca (texto)
-    print (resultado)
     # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
     if (resultado == 1.8181818181818181):
         print ("Funcionou")
         print ("Tamanho médio da sentença:", resultado)
+
+
+def testa_calc_tamanho_medio_frase (texto):
+    resultado = calc_tamanho_medio_frase (texto)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 38.5):
+        print ("Funcionou")
+        print ("Tamanho médio da sentença:", resultado)
+
 
 texto = "Então resolveu ir brincar com a Máquina pra ser também imperador dos filhos da mandioca. Mas as três cunhas deram muitas risadas e falaram que isso de deuses era gorda mentira antiga, que não tinha deus não e que com a máquina ninguém não brinca porque ela mata. A máquina não era deus não, nem possuía os distintivos femininos de que o herói gostava tanto. Era feita pelos homens. Se mexia com eletricidade com fogo com água com vento com fumo, os homens aproveitando as forças da natureza. Porém jacaré acreditou? nem o herói! Se levantou na cama e com um gesto, esse sim! bem guaçu de desdém, tó! batendo o antebraço esquerdo dentro do outro dobrado, mexeu com energia a munheca direita pras três cunhas e partiu. Nesse instante, falam, ele inventou o gesto famanado de ofensa: a pacova."
 # O texto acima tem:
