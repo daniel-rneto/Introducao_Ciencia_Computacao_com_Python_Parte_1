@@ -151,6 +151,19 @@ def tamanho_medio_sentenca (texto):
     # A função recebe um texto como parâmetro e devolve o cálculo do tamanho médio de sentença
     return (calc_total_caracteres_todas_sentencas (texto) / calc_numero_sentencas (texto))
 
+def calc_total_frases (texto):
+    # A função recebe um texto na entrada e devolve o total de frases que o texto tem
+    total_frases = 0
+    for sentenca_separada in separa_sentencas(texto):
+        total_frases = total_frases + len(separa_frases(sentenca_separada))
+    
+    return total_frases
+
+def calc_complexidade_sentenca (texto):
+    # A função receve um texto na entrada e retorna o calculo da Complexidade de sentença
+    return (calc_total_frases (texto) / calc_numero_sentencas (texto))
+
+
 
 #####################
 #### T E S T E S ####
@@ -213,6 +226,14 @@ def testa_tamanho_medio_sentenca (texto):
     resultado = tamanho_medio_sentenca (texto)
     # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
     if (resultado == 70.81818181818181):
+        print ("Funcionou")
+        print ("Tamanho médio da sentença:", resultado)
+
+def testa_calc_complexidade_sentenca (texto):
+    resultado = calc_complexidade_sentenca (texto)
+    print (resultado)
+    # [4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
+    if (resultado == 1.8181818181818181):
         print ("Funcionou")
         print ("Tamanho médio da sentença:", resultado)
 
