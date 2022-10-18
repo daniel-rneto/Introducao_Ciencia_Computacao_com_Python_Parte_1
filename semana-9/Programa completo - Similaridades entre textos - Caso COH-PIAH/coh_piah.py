@@ -72,7 +72,15 @@ def n_palavras_diferentes(lista_palavras):
 def compara_assinatura(as_a, as_b):
     '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade 
     nas assinaturas.'''
-    pass
+    cont = 0
+    soma = 0
+    print (as_a)
+    print (as_b)
+    while (cont < 6):
+        soma = soma + abs(as_a[cont] - as_b[cont])
+        print ("abs(",as_a[cont],"-",as_b[cont],")")
+        cont = cont + 1
+    return (soma / cont)
 
 def calcula_assinatura(texto):
     '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
@@ -82,6 +90,7 @@ def calcula_assinatura(texto):
     sal_a = tamanho_medio_sentenca (texto)
     sac_b = calc_complexidade_sentenca (texto)
     pal_a = calc_tamanho_medio_frase (texto)
+    
     return [wal_a, ttr_a, hlr_a, sal_a, sac_b, pal_a]
     
 def avalia_textos(textos, ass_cp):
@@ -90,6 +99,7 @@ def avalia_textos(textos, ass_cp):
     pass
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 def calc_qtde_letras_texto (texto):
     # Função recebe um texto e retorna quantos caracteres tem o texto. 
@@ -281,3 +291,4 @@ texto = "Então resolveu ir brincar com a Máquina pra ser também imperador dos
 # O texto acima tem:
 # 631 caracteres sem espaço, 790 caracteres com espaço
 # 97 palavras diferentes
+as_b = [4.51, 0.693, 0.55, 70.82, 1.82, 38.5]
